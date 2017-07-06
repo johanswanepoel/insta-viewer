@@ -1,0 +1,21 @@
+{
+  "name": "insta-app",
+  "version": "1.0.0",
+  "description": "A node app to display Instagram images",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "instagram",
+    "node",
+    "javascript"
+  ],
+  "author": "Johan Swanepoel",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
+    "instagram-node": "^0.5.8"
+  }
+}
