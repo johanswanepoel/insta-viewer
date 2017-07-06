@@ -41,7 +41,7 @@ app.get('/', function(req, res) {
 
     // use the instagram package to get our profile's media
     // render the home page and pass in our profile's images
-    res.render('pages/index');
+    res.render('pages/index'); // automatically checks for a 'views' folder
 
 });
 
