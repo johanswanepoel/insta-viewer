@@ -19,8 +19,10 @@ var express = require('express');
 var app = express();
 var ig = require('instagram-node').instagram();
 
+// ==================================================
 // CONFIGURE THE APP
 // ==================================================
+
 // tell node where to look for site resources
 app.use(express.static(__dirname + '/public'));
 
@@ -30,9 +32,10 @@ app.set('view engine', 'ejs');
 // configure instagram app with your access token
 // we'll get to this soon
 
-
+// ==================================================
 // SET THE ROUTES
-// ===================================================
+// ==================================================
+
 // home page route - our profile's images
 app.get('/', function(req, res) {
 
@@ -42,7 +45,9 @@ app.get('/', function(req, res) {
 
 });
 
+// ==================================================
 // START THE SERVER
 // ==================================================
+
 app.listen(8080);
 console.log('App started! Look at http://localhost:8080');
