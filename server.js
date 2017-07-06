@@ -9,6 +9,8 @@ Workflow
         - Grab our Instagram images
         - Pass to our views
     - Start the server
+
+    https://api.instagram.com/v1/users/self/media/recent?access_token=###
 */
 
 // ==================================================
@@ -30,19 +32,22 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 // configure instagram app with your access token
-// we'll get to this soon
+ig.use({
+    // get access token here: http://instagram.pixelunion.net/
+    access_token: 'YOUR_ACCESS_TOKEN',
+});
 
 // ==================================================
 // SET THE ROUTES
 // ==================================================
 
-// home page route - our profile's images
-app.get('/', function(req, res) {
-
-    // use the instagram package to get our profile's media
-    // render the home page and pass in our profile's images
-    res.render('pages/index'); // automatically checks for a 'views' folder
-
+// home page route - popular images
+app.get('/', function (req, res) {
+    // use the instagram package to get popular media
+    ig.user_self_media_recent(function (err, medias, pagination, remaining, limit) {
+        // render the home page and pass in the popular images
+        res.render('pages/index', { grams: medias }); // automatically checks for a 'views' folder
+    });
 });
 
 // ==================================================
